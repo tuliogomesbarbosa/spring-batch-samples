@@ -11,9 +11,6 @@ import org.springframework.context.annotation.Configuration;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by tgomes on 7/10/17.
- */
 @Configuration
 public class JobConfiguration {
     @Autowired

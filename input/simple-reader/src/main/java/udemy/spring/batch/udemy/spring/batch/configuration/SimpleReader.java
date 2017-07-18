@@ -9,7 +9,8 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * Created by tgomes on 7/10/17.
+ * SimpleReader é um reader sem estado (stateless),
+ * isto é, não precisa se preocupar com o restart do step.
  */
 public class SimpleReader implements ItemReader<Integer> {
     private Iterator<Integer> data;
