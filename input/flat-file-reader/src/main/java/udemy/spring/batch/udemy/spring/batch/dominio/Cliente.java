@@ -8,19 +8,55 @@ public class Cliente {
     private String ultimoNome;
     private Date dataNascimento;
 
+    public Cliente() {
+
+    }
+
     public Cliente(long id, String primeiroNome, String ultimoNome, Date dataNascimento) {
-        this.id = id;
-        this.primeiroNome = primeiroNome;
-        this.ultimoNome = ultimoNome;
-        this.dataNascimento = dataNascimento;
+        this.setId(id);
+        this.setPrimeiroNome(primeiroNome);
+        this.setUltimoNome(ultimoNome);
+        this.setDataNascimento(dataNascimento);
     }
 
     @Override
     public String toString() {
         return "Cliente{" +
-                "id=" + id +
-                ", primeiroNome='" + primeiroNome + '\'' +
-                ", ultimoNome='" + ultimoNome + '\'' +
-                ", dataNascimento=" + dataNascimento + '}';
+                "id=" + getId() +
+                ", primeiroNome='" + getPrimeiroNome() + '\'' +
+                ", ultimoNome='" + getUltimoNome() + '\'' +
+                ", dataNascimento=" + getDataNascimento() + '}';
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getPrimeiroNome() {
+        return primeiroNome;
+    }
+
+    public void setPrimeiroNome(String primeiroNome) {
+        this.primeiroNome = primeiroNome;
+    }
+
+    public String getUltimoNome() {
+        return ultimoNome;
+    }
+
+    public void setUltimoNome(String ultimoNome) {
+        this.ultimoNome = ultimoNome;
+    }
+
+    public Date getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public void setDataNascimento(Date dataNascimento) {
+        this.dataNascimento = dataNascimento;
     }
 }

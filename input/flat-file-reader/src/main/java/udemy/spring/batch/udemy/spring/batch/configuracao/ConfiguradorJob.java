@@ -6,6 +6,7 @@ import org.springframework.batch.core.configuration.annotation.JobBuilderFactory
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
 import org.springframework.batch.item.ItemWriter;
 import org.springframework.batch.item.file.FlatFileItemReader;
+import org.springframework.batch.item.file.mapping.BeanWrapperFieldSetMapper;
 import org.springframework.batch.item.file.mapping.DefaultLineMapper;
 import org.springframework.batch.item.file.transform.DelimitedLineTokenizer;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,9 +43,10 @@ public class ConfiguradorJob {
 
         DelimitedLineTokenizer tokenizer = new DelimitedLineTokenizer();
         tokenizer.setNames(new String[] {"id", "primeiroNome", "ultimoNome", "dataNascimento"});
-
+        BeanWrapperFieldSetMapper<Cliente> beanWrapperFieldSetMapper = new BeanWrapperFieldSetMapper<>();
+        beanWrapperFieldSetMapper.setTargetType(Cliente.class);
         mapeadorDeLinha.setLineTokenizer(tokenizer);
-        mapeadorDeLinha.setFieldSetMapper(new MapeadorCliente());
+        mapeadorDeLinha.setFieldSetMapper(beanWrapperFieldSetMapper);//new MapeadorCliente());
         mapeadorDeLinha.afterPropertiesSet();
 
         leitor.setLineMapper(mapeadorDeLinha);
